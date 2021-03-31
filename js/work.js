@@ -37,7 +37,6 @@ function calcStandardDeviation() {
 }
 
 function calcIntEstimate() {
-    calcInternalValues();
     let retVal = `<kbd>${
                 (midStat - (stdDeviation * t_l / Math.sqrt(numbers.length))).toFixed(2)
             } <= m <= ${
@@ -47,7 +46,6 @@ function calcIntEstimate() {
 }
 
 function calcNoDispIntEstimate() {
-    calcInternalValues();
     let retVal = `<kbd>${
                 (midStat - (stdDeviation * t_s / Math.sqrt(numbers.length))).toFixed(2)
             } <= m <= ${
@@ -56,19 +54,23 @@ function calcNoDispIntEstimate() {
     document.getElementById('noMSIntEstimate').innerHTML = retVal;
 }
 
+
 function calcInternalValues(){
     switch (rel) {
         case '0.999':
             t_l = 3.3;
             t_s = 3.56;
+            q=0.5;
             break;
         case '0.99':
             t_l = 2.6;
             t_s = 2.71;
+            q = 0.35;
             break;
         case '0.95':
             t_l = 1.96;
             t_s = 2.02;
+            q = 0.24;
             break;
     }
 }
