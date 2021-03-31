@@ -6,7 +6,7 @@ var numbers = (document.getElementById('numbers').value)
 
 //reliability and values wich come with it
 var rel = document.getElementById('reliability').value;
-var t_s, t_l;
+var t_s, t_l, q;
 
 //Sterjeet`s number
 var r = 1 + 3.322 * Math.log10(numbers.length);
