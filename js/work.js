@@ -51,9 +51,19 @@ function calcNoDispIntEstimate() {
             } <= m <= ${
                 (midStat + stdDeviation * t_s / Math.sqrt(numbers.length)).toFixed(2)
             } </kbd>`;
-    document.getElementById('noMSIntEstimate').innerHTML = retVal;
+    document.getElementById('noDispIntEstimate').innerHTML = retVal;
 }
 
+
+function calcIntEstimateForMidStat() {
+    let stdCorDev = stdDeviation * Math.sqrt((numbers.length / (numbers.length - 1)));
+    let retVal = `<kbd>${
+        (stdCorDev*(1-q)).toFixed(2)
+    } <= 𝜎 <= ${
+        (stdCorDev*(1+q)).toFixed(2)
+    } </kbd>`;
+    document.getElementById('stdDispEstimate').innerHTML = retVal;
+}
 
 function calcInternalValues(){
     switch (rel) {
